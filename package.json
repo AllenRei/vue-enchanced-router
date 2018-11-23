@@ -1,0 +1,27 @@
+{
+  "name": "vue-enchanced-router",
+  "version": "1.0.0",
+  "description": "Enchanced router for Vue 2",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AllenRei/vue-enchanced-router.git"
+  },
+  "keywords": [
+    "vue",
+    "router"
+  ],
+  "author": "AllenRei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AllenRei/vue-enchanced-router/issues"
+  },
+  "homepage": "https://github.com/AllenRei/vue-enchanced-router#readme",
+  "dependencies": {
+    "vue-hoc": "~0.4.6",
+    "vue-router": "^3.0.1"
+  }
+}
