@@ -25,7 +25,7 @@ export const LoaderFor = (
             spinner() {
                 return spinnerComponent
             },
-            error() {
+            errorComponent() {
                 return errorComponent
             }
         },

@@ -3,7 +3,7 @@ export const Loader = {
     <div>
         <component :is="spinner" v-if="loading"></component>
         <component :is="target" v-else></component>
-        <component :is="error" v-if="error"></component>
+        <component :is="errorComponent" v-if="error"></component>
     </div>
     `,
   name: 'loader',
@@ -21,19 +21,15 @@ export const Loader = {
   props: {
     target: {
       type: Object,
-      required: true
     },
     promises: {
       type: Array,
-      required: true
     },
     spinner: {
       type: Object,
-      required: true
     },
-    error: {
+    errorComponent: {
       type: Object,
-      required: true
     }
   }
 }
