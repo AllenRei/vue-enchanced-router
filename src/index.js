@@ -50,11 +50,10 @@ function routeMapper(spinnerComponent, errorComponent) {
 
 export class EnchancedRouter extends Router {
     constructor(data) {
-        super({
-            ...data,
-            routes: data.routes.map(
-                routeMapper(data.loaderSpinner, data.loaderError)
-            )
-        })
+        let args = Object.assign({}, data);
+        args.routes = data.routes.map(
+            routeMapper(data.loaderSpinner, data.loaderError)
+        )
+        super(args);
     }
 }
