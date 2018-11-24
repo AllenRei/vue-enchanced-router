@@ -1,6 +1,6 @@
 {
   "name": "vue-enchanced-router",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Enchanced router for Vue 2",
   "main": "src/index.js",
   "scripts": {

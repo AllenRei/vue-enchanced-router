@@ -34,8 +34,7 @@ export const isAuthorized = (to, from, next) => {
 ```
 
 ### Loaders
-In order to use loaders, you need to add a loaderSpinner to the router initialization object
-You can also pass a loaderError component, for custom error message if loader catches an error
+In order to use loaders, you need to add a **loaderSpinner** to the router initialization object. You can also pass a **loaderError** component for custom error message if loader catches an error
 
 > router.js
 ``` js
