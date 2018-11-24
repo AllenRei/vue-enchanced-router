@@ -1,12 +1,11 @@
-<template>
+export const Loader = {
+  template: `
     <div>
         <component :is="spinner" v-if="loading"></component>
         <component :is="target" v-else></component>
         <component :is="error" v-if="error"></component>
     </div>
-</template>
-<script>
-export default {
+    `,
   name: 'loader',
   data() {
     return {
@@ -37,5 +36,4 @@ export default {
       required: true
     }
   }
-};
-</script>
+}
