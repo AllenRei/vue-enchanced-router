@@ -21,7 +21,9 @@ function routeMapper(spinnerComponent, errorComponent) {
                 errorComponent);
         }
         if (route.children) {
-            route.children = route.children.map(routeMapper);
+            route.children = route.children.map(
+                routeMapper(spinnerComponent, errorComponent)
+            );
         }
         return route;
     }
