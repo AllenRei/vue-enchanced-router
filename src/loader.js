@@ -4,8 +4,6 @@ import {
 
 import { Loader } from './components/Loader';
 import { Error } from './components/Error';
-//import DefaultSpinner from './DefaultSpinner';
-//import DefaultError from './DefaultError';
 
 export const LoaderFor = (
     component,

@@ -1,10 +1,11 @@
 {
   "name": "vue-enchanced-router",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Enchanced router for Vue 2",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d lib"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,8 @@
   "dependencies": {
     "vue-hoc": "~0.4.6",
     "vue-router": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }
