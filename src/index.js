@@ -11,17 +11,17 @@ import {
 function routeMapper(spinnerComponent, errorComponent) {
     return (route) => {
         if (Array.isArray(route.beforeEnter)) {
-            newRoute.beforeEnter = RouteGuard(route.beforeEnter);
+            route.beforeEnter = RouteGuard(route.beforeEnter);
         }
         if (route.loaders) {
-            newRoute.component = LoaderFor(
+            route.component = LoaderFor(
                 route.component,
                 route.loaders,
                 spinnerComponent,
                 errorComponent);
         }
         if (route.children) {
-            newRoute.children = route.children.map(routeMapper);
+            route.children = route.children.map(routeMapper);
         }
         return route;
     }
