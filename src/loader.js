@@ -8,8 +8,9 @@ import { Error } from './components/Error';
 export const LoaderFor = (
     component,
     promises,
-    spinnerComponent, //=DefaultSpinner,
-    errorComponent=Error
+    spinnerComponent,
+    errorComponent=Error,
+    transition
 ) => {
     const options = {
         name: 'LoaderComponent',
@@ -27,6 +28,9 @@ export const LoaderFor = (
             },
             errorComponent() {
                 return errorComponent
+            },
+            transition() {
+                return transition
             }
         },
     };

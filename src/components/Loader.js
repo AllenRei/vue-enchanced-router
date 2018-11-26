@@ -2,21 +2,27 @@ export const Loader = {
   template: `
     <div>
         <component :is="spinner" v-if="loading"></component>
-        <component :is="target" v-else></component>
-        <component :is="errorComponent" v-if="error"></component>
+        <transition :name="transition || ''">
+          <component :is="target" v-else></component>
+        </transition>
+        <component :is="errorComponent" :error="errorMessage" v-if="error"></component>
     </div>
     `,
   name: 'loader',
   data() {
     return {
       loading: true,
-      error: false
+      error: false,
+      errorMessage: false
     };
   },
   created() {
     Promise.all(this.promises.map(p => p()))
       .then(() => (this.loading = false))
-      .catch(() => (this.error = true));
+      .catch(e => {
+        this.error = true
+        this.errorMessage = e;
+      });
   },
   props: {
     target: {
@@ -30,6 +36,9 @@ export const Loader = {
     },
     errorComponent: {
       type: Object,
+    },
+    transition: {
+      type: String
     }
   }
 }

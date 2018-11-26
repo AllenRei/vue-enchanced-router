@@ -8,21 +8,25 @@ import {
 
 //export const RouteGuard = RouteGuard;
 
-function routeMapper(spinnerComponent, errorComponent) {
+function routeMapper(spinnerComponent, errorComponent, transition) {
     return (route) => {
         if (Array.isArray(route.beforeEnter)) {
             route.beforeEnter = RouteGuard(route.beforeEnter);
         }
         if (route.loaders) {
+            if (!spinnerComponent)
+                return console.warn("No spinner component found for loader")
             route.component = LoaderFor(
                 route.component,
                 route.loaders,
                 spinnerComponent,
-                errorComponent);
+                errorComponent,
+                transition
+            );
         }
         if (route.children) {
             route.children = route.children.map(
-                routeMapper(spinnerComponent, errorComponent)
+                routeMapper(spinnerComponent, errorComponent, transition)
             );
         }
         return route;
@@ -31,9 +35,10 @@ function routeMapper(spinnerComponent, errorComponent) {
 
 export class EnchancedRouter extends Router {
     constructor(data) {
-        let args = Object.assign({}, data);
+        const args = Object.assign({}, data);
+        const loader = args.loader || {}
         args.routes = data.routes.map(
-            routeMapper(data.loaderSpinner, data.loaderError)
+            routeMapper(loader.spinnerComponent, loader.errorComponent, loader.transition)
         )
         super(args);
     }

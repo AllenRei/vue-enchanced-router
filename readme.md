@@ -34,7 +34,7 @@ export const isAuthorized = (to, from, next) => {
 ```
 
 ### Loaders
-In order to use loaders, you need to add a **loaderSpinner** to the router initialization object. You can also pass a **loaderError** component for custom error message if loader catches an error
+In order to use loaders, you need to add a **spinnerComponent** to the router initialization object. You can also pass a **errorComponent** component for custom message if loader catches an error. Loader also passes **error** prop to the error component, sou can process it in your own way.
 
 > router.js
 ``` js
@@ -50,8 +50,11 @@ import EnchancedRouter from 'vue-enchanced-router'
 
 const router = new EnchancedRouter({
     mode: 'history'
-    loaderSpinner: Spinner,
-    loaderError: ErrorMessage,
+    loader: {
+        spinnerComponent: Spinner,
+        errorComponent: ErrorMessage,
+        transition: "fade"
+    }
     routes: [
         {
             path: '/sample',
