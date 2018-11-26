@@ -3,7 +3,7 @@ export const Loader = {
     <div>
         <component :is="spinner" v-if="loading"></component>
         <transition :name="transition || ''">
-          <component :is="target" v-else></component>
+          <component :is="target" v-if="!loading"></component>
         </transition>
         <component :is="errorComponent" :error="errorMessage" v-if="error"></component>
     </div>
